@@ -179,5 +179,10 @@ export const imaEmployeesArray = [
     name: 'Clemens Wiesinger',
     image: 'https://cdn.fh-joanneum.at/person/4353441136-wiesinger-clemens--small.jpg',
     position: 'Nebenberuflich Lehrender'
+  },
+  {
+    name: 'Studiengangsleiter',
+    image: 'https://www.hawego.de/media/image/ff/f9/67/zarges-leiter-stehleiter-alu-z600-2x8-sprossen-za-40312.jpg',
+    position: 'Tragende Rolle'
   }
 ];
