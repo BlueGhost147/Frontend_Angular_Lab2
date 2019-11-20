@@ -1,8 +1,12 @@
-<p>ima-emploees works!</p>
-
-
+<h1>IMA Employees</h1>
+<div class="emp_search_row">
+  <input type="text" [formControl]="filterFormControl" placeholder="filter employees"/>
+</div>
 <div class="emp_row">
-  <div class="emp_col" *ngFor="let emp of imaEmployeesArray;">
-    {{emp.name}}
+  <div class="emp_col" *ngFor="let emp of imaEmployeesArray;let i = index;">
+    <img class="emp_img" [src]="emp.image">
+    <h2 class="emp_name">{{i}}: {{emp.name | uppercase}}</h2>
+    <h3 class="emp_position">{{emp.position}}</h3>
+    <div class="emp_description" [innerHTML]="emp.description" *ngIf="emp.description"></div>
   </div>
 </div>

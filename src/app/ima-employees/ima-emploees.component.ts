@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {imaEmployeesArray} from './ima-employees';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-ima-emploees',
@@ -9,14 +10,27 @@ import {imaEmployeesArray} from './ima-employees';
 export class ImaEmploeesComponent implements OnInit {
 
   imaEmployeesArray;
+  filterFormControl = new FormControl('');
 
   constructor() { }
 
   ngOnInit() {
     this.imaEmployeesArray = imaEmployeesArray;
-    /*
-    const firstEmp = this.imaEmployeesArray[0];
-    alert(firstEmp.name);*/
+
+    this.filterFormControl.valueChanges.subscribe(
+      (newFilterValue: string) => {
+        if(newFilterValue) {
+          this.imaEmployeesArray = imaEmployeesArray.filter(
+            (emp) => {
+              return emp.name.toLocaleLowerCase().lastIndexOf(newFilterValue.toLocaleLowerCase()) !== -1;
+            }
+          );
+        } else
+        {
+          this.imaEmployeesArray = imaEmployeesArray;
+        }
+      }
+    );
   }
 
 }
